@@ -43,17 +43,17 @@ const ChatWidget = () => {
         if (!message.trim() || !user) {
             return;
         }
-        const socket = socketRef.current || getSocket();
-            const messageData = {
-                room: "global",
-                author: user.username,
-            message: message.trim(),
-                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            };
 
-            await socket.emit("global_chat_message", messageData);
-            setMessage("");
-        }
+        const socket = socketRef.current || getSocket();
+        const messageData = {
+            room: "global",
+            author: user.username,
+            message: message.trim(),
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        };
+
+        socket.emit("global_chat_message", messageData);
+        setMessage("");
     };
 
     if (!user) return null;

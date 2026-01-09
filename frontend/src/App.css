@@ -1,0 +1,90 @@
+.App {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at 10% -10%, rgba(16, 185, 129, 0.08), transparent 60%),
+    radial-gradient(circle at 90% -20%, rgba(59, 130, 246, 0.05), transparent 55%),
+    var(--bg-deep);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+.app-gradient,
+.app-glow,
+.app-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-gradient {
+  background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.1), transparent 45%);
+}
+
+.app-glow {
+  background: radial-gradient(circle at 50% 120%, rgba(245, 158, 11, 0.15), transparent 65%);
+  mix-blend-mode: screen;
+}
+
+.app-noise {
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.12;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  margin: 2rem auto 2.5rem;
+  background: rgba(15, 23, 42, 0.75);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.logo {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(120deg, #f8fafc 0%, var(--primary-glow) 55%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-header .user-profile {
+  background: rgba(15, 23, 42, 0.65);
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .app-header .user-profile {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
